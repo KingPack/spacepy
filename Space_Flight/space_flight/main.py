@@ -1,14 +1,17 @@
 from flask import Flask
+
 from config import SECRET_KEY
 
 from ext import cors
 from ext import doc_swagger
-# from ext import database
+from ext import database
 
 from blueprint.space_flight_v1 import resources
 
 #----------------------------------------------------------------------------#
 # Initialize app and set config
+
+db = database.SessionLocal()
 
 app = Flask(__name__)
 

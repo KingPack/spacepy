@@ -12,6 +12,7 @@ SQLAlchemy = "^1.4.31"
 marshmallow = "^3.14.1"
 cors = "^1.0.1"
 Flask-Cors = "^3.0.10"
+psycopg2-binary = "^2.9.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
