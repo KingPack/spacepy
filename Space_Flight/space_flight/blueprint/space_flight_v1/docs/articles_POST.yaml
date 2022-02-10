@@ -1,0 +1,6 @@
+tags:
+- "Article"
+summary: "Adiciona artigo."
+description: "Adiciona artigo por {ID}."
+produces:
+- "application/json"
