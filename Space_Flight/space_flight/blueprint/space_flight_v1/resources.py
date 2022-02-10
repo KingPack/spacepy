@@ -3,6 +3,7 @@ from flask import jsonify
 from flask import Response
 from flask import request
 
+from ext import doc_swagger
 
 #----------------------------------------------------------------------------#
 # Resources
@@ -25,6 +26,7 @@ def index():
 
 
 @bp.route('/articles', methods=['GET'])
+@doc_swagger.swag_from("docs/articles_GET.yaml")
 def articles_get():
 
     return jsonify('artigos')
