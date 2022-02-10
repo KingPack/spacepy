@@ -1,0 +1,6 @@
+tags:
+- "Article"
+summary: "Lista Artigos."
+description: "Essa rota lista os artigos da Space Flight."
+produces:
+- "application/json"
