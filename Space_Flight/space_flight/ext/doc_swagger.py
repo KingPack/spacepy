@@ -7,7 +7,7 @@ swagger_template = {
     "info": { 
             "title": "Spaceflight News API",
             "description": "Documentation for the Spaceflight News API. Join The Space Devs Discord server to contact me for support :) NOTE: to use filters like _contains, specify the field you want to filter. For example: title_contains=nasa. This can not be done in this Swagger interface. More info and examples.",
-            "version": "0.1",
+            "version": "0.2.1",
             }
     }
 

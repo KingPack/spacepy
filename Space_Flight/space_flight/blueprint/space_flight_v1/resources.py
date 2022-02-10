@@ -33,6 +33,7 @@ def articles_get():
 
 
 @bp.route('/articles', methods=['POST'])
+@doc_swagger.swag_from("docs/articles_POST.yaml")
 def articles_post():
     request_json = request.get_json()
 
@@ -41,6 +42,26 @@ def articles_post():
     return jsonify(data_return)
 
 
+@bp.route('/articles/<int:id_article>', methods=['DELETE'])
+@doc_swagger.swag_from("docs/article_DELETE.yaml")
+def article_delete():
+    request_json = request.get_json()
+
+    data_return = request_json
+    
+    return jsonify(data_return)
+
+
+
+
 @bp.route('/articles/<int:id_article>', methods=['GET'])
-def  article(id_article):
+@doc_swagger.swag_from("docs/article_id_GET.yaml")
+def article_get(id_article):
+    return Response(f'artigo {id_article}', status=200, mimetype='text/html')
+
+
+
+@bp.route('/articles/<int:id_article>', methods=['PUT'])
+@doc_swagger.swag_from("docs/article_id_PUT.yaml")
+def article_put(id_article):
     return Response(f'artigo {id_article}', status=200, mimetype='text/html')
