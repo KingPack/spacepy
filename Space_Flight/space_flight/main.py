@@ -56,7 +56,8 @@ def article_id(id) -> object:
 
     return Response(result)
 
-
+#----------------------------------------------------------------------------#
+# Init
 @app.route('/init', methods=['GET'])
 @doc_swagger.swag_from("docs/init_get.yaml")
 def init() -> object:
@@ -67,13 +68,19 @@ def init() -> object:
     
     return jsonify(articles_data)
 
+
+
+
+#----------------------------------------------------------------------------#
+# init/data
 @app.route('/init/data', methods=['GET'])
 @doc_swagger.swag_from("docs/init_data_get.yaml")
 def init_data() -> object:
     """
-        Initialize all configurations
+        Inicializa os dados do banco de dados  API_DATA
         
     """
+
     initialize_database()
 
     data_api_query = db.query(DataApiModel).order_by(DataApiModel.id.desc()).first()
@@ -81,11 +88,17 @@ def init_data() -> object:
 
     return jsonify(data_api_json)
 
+
+#----------------------------------------------------------------------------#
+# init/data/<int:id>
 @app.route('/init/data/<int:id>', methods=['GET'])
 @doc_swagger.swag_from("docs/init_data_update.yaml")
 def init_data_id(id) -> object:
+    """
+        Inicializa 
+    """
 
-    print('Inicializando o Bando de dados')
+    print('Inicializando o Banco de dados')
     initialize_database()
     
 
@@ -206,6 +219,7 @@ def get_data_api(id) -> dict:
             if article_query:
                 print(f'Existe um artigo com esse id {id} no banco de dados')
                 article_json = ArticleSchema(many=False).dump(article_query)
+                print(article_json)
                     
                 print(f'Vou te mostrar o artigo {id}')
                 result = article_json

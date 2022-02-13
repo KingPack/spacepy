@@ -53,10 +53,10 @@ def articles_get():
 
     if not articles_json:
 
-        status_code = 404
+        status_code = 400
         result = {
             'message': 'Nenhum artigo criado ainda',
-            'status_code': 'Not found'
+            'status_code': '400'
             }
 
     else:
