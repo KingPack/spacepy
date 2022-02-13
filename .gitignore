@@ -154,7 +154,15 @@ cython_debug/
 
 # Config.py 
 # Configuraçoes de banco de dados e demais dados criticos
+#--------------------------------------------------------------------
+# O arquivo config.py deve ser criado para acessar o banco de dados
+# Pois nenhum dado sigiloso deve ser enviado em repositorios
+# adicione os dados de acesso ao banco de dados no arquivo config.py
+#--------------------------------------------------------------------
+
 /Space_Flight/space_flight/config.py
+
+#--------------------------------------------------------------------
 
 #VSCode Theme
 .vscode

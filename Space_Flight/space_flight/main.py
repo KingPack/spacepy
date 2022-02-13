@@ -86,7 +86,10 @@ def init_data() -> object:
     data_api_query = db.query(DataApiModel).order_by(DataApiModel.id.desc()).first()
     data_api_json = DataApiSchema().dump(data_api_query)
 
-    return jsonify(data_api_json)
+
+    result = data_api_json
+
+    return jsonify(result)
 
 
 #----------------------------------------------------------------------------#
@@ -203,9 +206,7 @@ def get_data_api(id) -> dict:
     print('entrando nos requests')
     request_article_data = requests.get(f'https://api.spaceflightnewsapi.net/v3/articles/{id}')
     print(f'status code {request_article_data.status_code}')
-    request_article_json = request_article_data
-    print(request_article_json.status_code)
-    print(type(request_article_json.status_code))
+    request_article_json = request_article_data.json()
     print('passei nos requests')
 
     if request_article_data.status_code == 200:
@@ -229,7 +230,7 @@ def get_data_api(id) -> dict:
                 
                 if request_article_data.status_code == 200:
                     print(f'Artigo {id} existente na api externa')
-
+                    print(request_article_json)
                     if request_article_json['launches']:
                         print(f'Artigo {id} possui launches')
                         launches = True
