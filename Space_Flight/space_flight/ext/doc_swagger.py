@@ -7,7 +7,7 @@ swagger_template = {
     "info": { 
             "title": "Spaceflight News API",
             "description": "Documentation for the Spaceflight News API. Join The Space Devs Discord server to contact me for support :) NOTE: to use filters like _contains, specify the field you want to filter. For example: title_contains=nasa. This can not be done in this Swagger interface. More info and examples.",
-            "version": "0.2.1",
+            "version": "0.5.3",
             }
     }
 
@@ -17,14 +17,14 @@ swagger_config = {
     "headers": [],
     "specs": [{
         "endpoint": "/apispec_1",
-        "route": '/api',
+        "route": '/',
         "rule_filter": lambda rule: True,
         "model_filter": lambda tag: True}
         ],
-    "basePath": "localhost:8050/api/v1/",
+    "basePath": "/",
     "static_url_path": "/flasgger_static",
     "swagger_ui": True,
-    "specs_route": "/api/docs/",
+    "specs_route": "/v1/documentation/",
     }
 
 
