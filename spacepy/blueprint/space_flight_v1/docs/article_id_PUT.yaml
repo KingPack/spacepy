@@ -1,0 +1,28 @@
+tags:
+- "Article"
+summary: "Atualiza artigo."
+description: "Atualiza um artigo por id."
+produces:
+- "application/json"
+parameters:
+  - name: "id"
+    in: "path"
+    description: "ID do artigo."
+    required: true
+    type: "integer"
+  - in: "body"
+    name: "Dados necessarios."
+    required: true
+    example: {"id": null,"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
+responses:
+  "200":
+    description: "Artigo modificado com sucesso."
+  "404":
+    description: "Falha de requisição"
+    schema:
+      type: "object"
+      properties:
+        Mensagem:
+          type: "string"
+        Adicional:
+          type: "string"

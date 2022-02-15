@@ -1,6 +1,0 @@
-tags:
-- "Article"
-summary: "Atualiza artigo."
-description: "Atualiza um artigo por {ID}."
-produces:
-- "application/json"

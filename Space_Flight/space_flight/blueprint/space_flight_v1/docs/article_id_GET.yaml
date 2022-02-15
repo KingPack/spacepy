@@ -1,6 +1,0 @@
-tags:
-- "Article"
-summary: "Lista artigo."
-description: "Lista um artigo por {id}. "
-produces:
-- "application/json"

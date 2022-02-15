@@ -24,7 +24,7 @@ swagger_config = {
     "basePath": "/",
     "static_url_path": "/flasgger_static",
     "swagger_ui": True,
-    "specs_route": "/v1/documentation/",
+    "specs_route": "/documentation/",
     }
 
 
