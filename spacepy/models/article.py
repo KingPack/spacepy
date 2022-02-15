@@ -57,9 +57,11 @@ class ArticlelaunchesModel(Base):
     __tablename__ = 'article_launches'
 
     id_launches = Column(Integer, primary_key=True)
-    id_launches_article = Column(String)
+    id_article = Column(Integer)
+
     id = Column(String)
     provider = Column(String)
+
 
 class ArticlelaunchesSchema(Schema):
 
@@ -73,8 +75,10 @@ class ArticlelaunchesSchema(Schema):
 class ArticleEventsModel(Base):
     
     __tablename__ = 'article_events'
+
     id_events = Column(Integer, primary_key=True)
-    id_events_article = Column(Integer)
+    id_article = Column(Integer)
+
     id = Column(Integer)
     provider = Column(String)
 
@@ -93,8 +97,9 @@ class DataApiModel(Base):
     id = Column(Integer, primary_key=True)
     last_update = Column(DateTime, default=datetime.now())
     init_articles = Column(Integer)
-    end_articles = Column(Integer)
-    total_articles = Column(Integer)
+    end_articles_ext = Column(Integer)
+    total_articles_ext = Column(Integer)
+    total_articles_db = Column(Integer)
     canceled_articles = Column(Integer)
 
 class DataApiSchema(Schema):
@@ -102,6 +107,7 @@ class DataApiSchema(Schema):
     id = fields.Integer()
     last_update = fields.String()
     init_articles = fields.Integer()
-    end_articles = fields.Integer()
-    total_articles = fields.Integer()
+    end_articles_ext = fields.Integer()
+    total_articles_ext = fields.Integer()
+    total_articles_db = fields.Integer()
     canceled_articles = fields.Integer()

@@ -1,0 +1,24 @@
+tags:
+- "Article"
+summary: "Adiciona artigo."
+description: "Adiciona artigo por id."
+produces:
+- "application/json"
+parameters:
+  - in: "body"
+    name: "Artigo"
+    description: "Dicionario necessario para cadastro de artigo."
+    required: true
+    example: {"id": null,"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
+
+responses:
+  "200":
+    description: "Artigo criado com sucesso."
+  "404":
+    description: "Falha de requisição"
+    schema:
+      type: "object"
+      properties:
+        Mensagem:
+          type: "string"
+

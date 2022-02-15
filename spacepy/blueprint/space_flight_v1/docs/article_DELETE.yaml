@@ -1,0 +1,25 @@
+tags:
+- "Article"
+summary: "Deleta artigo."
+description: "Essa rota deleta o artigo por {ID}."
+produces:
+- "application/json"
+parameters:
+  - name: "id"
+    in: "path"
+    required: true
+    minimum: 1
+    type: "integer"
+
+responses:
+  "200":
+    description: "Artigo excluido com sucesso."
+  "404":
+    description: "Falha de requisição"
+    schema:
+      type: "object"
+      properties:
+        Mensagem:
+          type: "string"
+        Adicional:
+          type: "string"

@@ -6,7 +6,7 @@ produces:
 - "application/json"
 responses:
   "200":
-    description: "Mesa criada com sucesso."
+    description: "Lista de artigos."
     schema:
       type: "object"
       properties:
@@ -43,14 +43,3 @@ responses:
         articles:
           type: "list"
           example: []
-        
-
-  "400":
-    description: "Falha de requisição"
-    schema:
-      type: "object"
-      properties:
-        Mensagem:
-          type: "string"
-        Adicional:
-          type: "string"

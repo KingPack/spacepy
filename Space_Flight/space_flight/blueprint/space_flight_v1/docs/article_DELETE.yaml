@@ -1,6 +1,0 @@
-tags:
-- "Article"
-summary: "Deleta artigo."
-description: "Essa rota deleta o artigo por {ID}."
-produces:
-- "application/json"
