@@ -1,7 +1,6 @@
 SECRET_KEY = 'batatinha'
 
 
-
 DB = 'dev'
 
 if 'dev' in DB:

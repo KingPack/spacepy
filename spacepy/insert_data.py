@@ -39,9 +39,7 @@ data_api_schema = DataApiSchema()
 
 # inicializa o banco de dados chamando a função que adiciona na tabela data_api 
 def initialize_database() -> dict:
-    """
-        Initialize DataApiModel
-    """
+    """ Initialize DataApiModel """
 
     from models.article import DataApiModel, DataApiSchema
     import requests
@@ -73,7 +71,6 @@ def initialize_database() -> dict:
         total_articles_ext = total_articles_ext,
         total_articles_db = total_articles_db,
         canceled_articles = canceled_articles,
-
     )
 
     db.add(data_api_insert)
@@ -94,7 +91,6 @@ def get_article_database(id:int) -> dict:
     data_api_query = db.query(DataApiModel).order_by(DataApiModel.id.desc()).first()
     data_api_json = DataApiSchema().dump(data_api_query)
 
-    
 
     if id <= data_api_query.end_articles_ext:
         
@@ -146,7 +142,7 @@ def get_article_database(id:int) -> dict:
 
 
     else:
-        result = {'message': f'O limite de artigos externos e de ate | artigo id:{data_api_json["end_articles_ext"]}'}
+        result = {'message': f'O limite de artigos externos e de ate o id : { data_api_json["end_articles_ext"]}'}
 
 
     return dict(result)

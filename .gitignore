@@ -160,7 +160,9 @@ cython_debug/
 # adicione os dados de acesso ao banco de dados no arquivo config.py
 #--------------------------------------------------------------------
 
-/Space_Flight/space_flight/config.py
+./spacepy/config.py
+/spacepy/config.py
+*config.py
 
 #--------------------------------------------------------------------
 
