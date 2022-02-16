@@ -1,4 +1,4 @@
-from ext.database import Base
+from spacepy.ext.database import Base
 
 from sqlalchemy import Column
 from sqlalchemy import Integer

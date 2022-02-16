@@ -1,13 +1,20 @@
 import requests
 
-from config import *
+from .config import *
 
-from models.article import ArticleModel, ArticleEventsModel, ArticlelaunchesModel, DataApiModel
-from models.article import ArticleSchema, ArticleEventsSchema, ArticlelaunchesSchema, DataApiSchema
+from spacepy.models.article import ArticleModel
+from spacepy.models.article import ArticleEventsModel
+from spacepy.models.article import ArticlelaunchesModel
+from spacepy.models.article import DataApiModel
+
+from spacepy.models.article import ArticleSchema
+from spacepy.models.article import ArticleEventsSchema
+from spacepy.models.article import ArticlelaunchesSchema
+from spacepy.models.article import DataApiSchema
 
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
 #----------------------------------------------------------------------------#
 # Run test

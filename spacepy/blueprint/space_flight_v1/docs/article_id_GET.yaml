@@ -11,8 +11,45 @@ parameters:
   required: true
   type: "integer"
 responses:
+responses:
   "200":
-    description: "Artigo listado com sucesso."
+    description: "Lista de artigos."
+    schema:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          example: 1
+        title:
+          type: "string"
+          example: "No commercial crew test flights expected this year"
+        url:
+          type: "string"
+          example: "https://spaceflightnow.com/2018/10/06/no-commercial-crew-test-flights-expected-this-year/"
+        imageUrl:
+          type: "string"
+          example: "https://spaceflightnow.com/wp-content/uploads/2018/10/ccp-countdown-header-326x245.jpg"
+        newsSite:
+          type: "string"
+          example: "Spaceflight Now"
+        summary:
+          type: "string"
+          example: ""
+        publishedAt:
+          type: "string"
+          example: "2018-10-05T22:00:00.000Z"
+        updatedAt:
+          type: "string"
+          example: "2021-05-18T13:43:19.589Z"
+        featured:
+          type: "boolean"
+          example: false
+        launches:
+          type: "list"
+          example: []
+        articles:
+          type: "list"
+          example: []
   "404":
     description: "Falha de requisição"
     schema:

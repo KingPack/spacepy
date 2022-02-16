@@ -4,13 +4,13 @@ from flask import jsonify
 from flask import Response
 from flask import request
 
-from models.article import ArticleModel, ArticleEventsModel, ArticlelaunchesModel
-from models.article import ArticleSchema, ArticleEventsSchema, ArticlelaunchesSchema
+from spacepy.models.article import ArticleModel, ArticleEventsModel, ArticlelaunchesModel
+from spacepy.models.article import ArticleSchema, ArticleEventsSchema, ArticlelaunchesSchema
 
-from ext.database import SessionLocal, Base, engine
+from spacepy.ext.database import SessionLocal, Base, engine
 
-from ext import doc_swagger
-from insert_data import get_article_database
+from spacepy.ext import doc_swagger
+from spacepy.insert_data import get_article_database
 
 
 #----------------------------------------------------------------------------#
@@ -36,7 +36,7 @@ article_events_schema = ArticleEventsSchema(many=True)
 # Routes bp
 
 @bp.route('/', methods=['GET'])
-def index():
+def index() -> Response:
     result = '<H1> Welcome to Space Flight News API Version 1.0</H1>'
     
     return Response(result, status=200, mimetype='text/html')
@@ -120,10 +120,10 @@ def articles_get():
 
     except Exception as error:
         
-
         result = {'mensagem': str(error)}   
 
     db.close()
+
     return Response(result)
 
 
@@ -131,8 +131,6 @@ def articles_get():
 @doc_swagger.swag_from("docs/articles_POST.yaml")
 def articles_post() -> Response:
     data_request_json = request.get_json()
-    print(data_request_json)
-    print(type(data_request_json))
 
     try:
 
@@ -299,6 +297,7 @@ def articles_post() -> Response:
 @bp.route('/articles/<int:id>', methods=['GET'])
 @doc_swagger.swag_from("docs/article_id_GET.yaml")
 def article_get(id: int) -> Response:
+    
     article_query = db.query(ArticleModel).filter(ArticleModel.id == id).first()
 
     if article_query: # if article exists

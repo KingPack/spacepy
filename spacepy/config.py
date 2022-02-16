@@ -7,7 +7,7 @@ DB = 'dev'
 if 'dev' in DB:
 
     DB_HOST = 'localhost'
-    DB_PORT = '49154'
+    DB_PORT = '49153'
     DB_USER = 'root'
     DB_PASS = 'root'
     DB_DATA = 'postgres'
@@ -16,6 +16,7 @@ if 'dev' in DB:
 
 
 elif 'prod' in DB:
+    
     DB_HOST = 'ec2-52-73-149-159.compute-1.amazonaws.com'
     DB_PORT = '5432'
     DB_USER = 'oayqwltvouhlxu'

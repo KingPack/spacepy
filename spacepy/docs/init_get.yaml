@@ -1,9 +1,0 @@
-tags:
-- "Config"
-summary: "Inicializa o banco de dados."
-description: "Essa rota inicializa a função de log do banco de dados."
-produces:
-- "application/json"
-responses:
-  "200":
-    description: "Log criado com sucesso."

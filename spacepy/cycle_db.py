@@ -2,13 +2,13 @@ import schedule
 import time
 from datetime import datetime
 
-from insert_data import create_data_loop, initialize_database
+from spacepy.ext.insert_data import create_data_loop, initialize_database
 
 
 initialize_database()
 
 
-def create_data_loop_schedule(horario_init:str):
+def create_data_loop_schedule(horario_init:str) -> None:
 
     print('Iniciando o loop de criação de artigos...')
     

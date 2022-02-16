@@ -1,9 +1,0 @@
-tags:
-- "Config"
-summary: "Mostra o utimo log criado."
-description: "Essa rota mostra o ultimo log criado no data api."
-produces:
-- "application/json"
-responses:
-  "200":
-    description: "Lista de dados."
