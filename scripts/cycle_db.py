@@ -2,14 +2,12 @@ import schedule
 import time
 from datetime import datetime
 
-from spacepy.ext.insert_data import create_data_loop, initialize_database
+from populate_db import create_data_loop, initialize_database
 
-
-initialize_database()
-
+horario_init = input('\n Qual horario de inicio ? exemplo (HH:MM) 10:00 :  ')
 
 def create_data_loop_schedule(horario_init:str) -> None:
-
+    initialize_database()
     print('Iniciando o loop de criação de artigos...')
     
     schedule.every().day.at(horario_init).do(create_data_loop)
@@ -29,6 +27,9 @@ def create_data_loop_schedule(horario_init:str) -> None:
         contador += 1
 
 
-horario_init = input('\n Qual horario de inicio ? exemplo (HH:MM) 10:00 :  ')
+if horario_init:
 
-create_data_loop_schedule(horario_init)
+    create_data_loop_schedule(horario_init)
+
+else:
+    print('Informe um data validade para o horario de inicio.')

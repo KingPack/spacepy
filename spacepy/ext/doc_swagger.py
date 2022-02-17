@@ -84,7 +84,7 @@ swagger_template = {
     "info": { 
             "title": "Spaceflight News API",
             "description": "Documentação da Spacepy. Um projeto desenvoldido com base na API Spacefligh News. \n Para mais informações acesse a [API Spaceflight News](https://api.spaceflightnewsapi.net/v3/documentation).",
-            "version": "1.0.4",
+            "version": "1.1.0",
             'termsOfService': "https://spaceflightnewsapi.net",
             'contact':{'url': "https://github.com/KingPack"},
             'license':{'name': "License", 'url': "http://www.apache.org/licenses/LICENSE-2.0.html"},

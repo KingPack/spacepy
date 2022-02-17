@@ -4,42 +4,65 @@ summary: "Lista Artigos."
 description: "Essa rota lista os artigos da Space Flight."
 produces:
 - "application/json"
+
+parameters:
+  - in: body
+    name: "Filtros"
+    description: "Dados para filtrar quantidade e inicio do artigo."
+    schema:
+      type: object
+      properties:
+        article_init:
+          type: integer
+          example: 1
+        quantity_articles:
+          type: integer
+          example: 10
 responses:
   "200":
     description: "Lista de artigos."
     schema:
-      type: "object"
+      type: object
       properties:
         id:
-          type: "integer"
+          type: integer
           example: 1
         title:
-          type: "string"
+          type: string
           example: "No commercial crew test flights expected this year"
         url:
-          type: "string"
+          type: string
           example: "https://spaceflightnow.com/2018/10/06/no-commercial-crew-test-flights-expected-this-year/"
         imageUrl:
-          type: "string"
+          type: string
           example: "https://spaceflightnow.com/wp-content/uploads/2018/10/ccp-countdown-header-326x245.jpg"
         newsSite:
-          type: "string"
+          type: string
           example: "Spaceflight Now"
         summary:
-          type: "string"
+          type: string
           example: ""
         publishedAt:
-          type: "string"
+          type: string
           example: "2018-10-05T22:00:00.000Z"
         updatedAt:
-          type: "string"
+          type: string
           example: "2021-05-18T13:43:19.589Z"
         featured:
-          type: "boolean"
+          type: boolean
           example: false
         launches:
-          type: "list"
+          type: list
           example: []
         articles:
-          type: "list"
+          type: list
           example: []
+  "404":
+    description: "Falha de requisição"
+    schema:
+      type: object
+      properties:
+        mensagem:
+          type: string
+        status_code:
+          type: integer

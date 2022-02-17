@@ -22,7 +22,7 @@ responses:
     schema:
       type: "object"
       properties:
-        Mensagem:
+        mensagem:
           type: "string"
-        Adicional:
+        status_code:
           type: "string"

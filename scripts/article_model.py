@@ -1,20 +1,22 @@
-from spacepy.ext.database import Base
+from data_base import Base, engine
+
+from datetime import datetime
 
 from sqlalchemy import Column
 from sqlalchemy import Integer
-
-from sqlalchemy.sql.sqltypes import Boolean
-from sqlalchemy.sql.sqltypes import String
-from sqlalchemy.sql.sqltypes import Text
-from sqlalchemy.sql.sqltypes import DateTime
 
 from marshmallow import Schema
 from marshmallow import fields
 
 from datetime import datetime
-#----------------------------------------------------------------------------#
-# Models and Schemas Article.
 
+from sqlalchemy.sql.sqltypes import Text
+from sqlalchemy.sql.sqltypes import String
+from sqlalchemy.sql.sqltypes import Boolean
+from sqlalchemy.sql.sqltypes import DateTime
+
+# models para o banco de dados
+Base.metadata.create_all(bind=engine)
 
 class ArticleModel(Base):
 
