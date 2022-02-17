@@ -1,6 +1,6 @@
 import requests
 
-from .config import *
+from ..config import *
 
 from spacepy.models.article import ArticleModel
 from spacepy.models.article import ArticleEventsModel

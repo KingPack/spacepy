@@ -162,7 +162,8 @@ cython_debug/
 
 ./spacepy/config.py
 /spacepy/config.py
-*config.py
+spacepy/config.py
+./spacepy/config_db.py
 
 #--------------------------------------------------------------------
 
