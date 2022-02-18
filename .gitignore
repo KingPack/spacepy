@@ -144,28 +144,16 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
-#  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
-
-
 # Config.py 
-# Configuraçoes de banco de dados e demais dados criticos
-#--------------------------------------------------------------------
-# O arquivo config.py deve ser criado para acessar o banco de dados
-# Pois nenhum dado sigiloso deve ser enviado em repositorios
-# adicione os dados de acesso ao banco de dados no arquivo config.py
-#--------------------------------------------------------------------
-
-./spacepy/config.py
-/spacepy/config.py
+#   Configuraçoes de banco de dados e demais dados criticos
+#   O arquivo config.py deve ser criado para acessar o banco de dados
+#   Pois nenhum dado sigiloso deve ser enviado em repositorios
+#   adicione os dados de acesso ao banco de dados no arquivo config.py
 spacepy/config.py
-./spacepy/config_db.py
+scripts/config.py
 
-#--------------------------------------------------------------------
-
-#VSCode Theme
+# VSCode Theme
 .vscode
+
+# Comandos de linha de comando ou export
+comands.txt
