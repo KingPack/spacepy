@@ -1,12 +1,15 @@
 # Spacepy
 
-Este é um desafio de programação back-end onde consiste em replicar uma API Restful baseada na API [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation).
+Projeto desenvolvido e mantido por [KingPack](https://github.com/KingPack).
 
 ## Back-end Challenge 2021 - Space Flight News
+
+Este é um desafio de programação back-end que consiste na replicação de uma API Restful baseada na API [Space Flight News](https://api.spaceflightnewsapi.net/v3/documentation).
 
 ## Tecnologias
 
 - [Poetry](https://python-poetry.org/docs/)
+- [Git](https://git-scm.com)
 - [Python 3](https://www.python.org/downloads/)
 - [IPython](https://ipython.org)
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
@@ -24,24 +27,32 @@ Este é um desafio de programação back-end onde consiste em replicar uma API R
 
 ### 1º Poetry
 
- Para a instalação do --> [Poetry](https://python-poetry.org/docs/) <--
+Para a instalação do  [Poetry](https://python-poetry.org/docs/)
 
 ### 2º Python 3
 
 Você deve instalar a versão 3.9.10 ou maior do [Python](https://www.python.org/downloads/).
 
-### 2º Banco de dados
+### 3º Git
+
+Documentação  para instalação do [Git](https://git-scm.com/downloads).
+
+### 4º Banco de dados
 
 Tenha os dados para se conectar no banco de dados.
 
-Apos fazer o git clone do repositorio, você deve criar um arquivo chamado config.py e colocar as configurações do banco de dados.
+Após fazer o git clone do repositório, você deve criar um arquivo chamado [config.py](https://github.com/KingPack/spacepy#iniciando-o-banco-de-dados) e colocar as configurações do banco de dados.
 
 ## Instalação
 
-Então vamos para a instação do projeto. 
+Agora, vamos para a instalação do projeto.
+
+Mas antes devemos verificar a se temos os requisitos necessarios para instalar e rodar o projeto.
 
 ### Poetry
-Veja se sua versão do poetry está superior ou igual a 1.1.12.
+
+Verifique se a sua versão do poetry está superior ou igual a 1.1.12.
+
 ```bash
 poetry --version
 
@@ -51,7 +62,8 @@ Poetry version 1.1.12
 ```
 
 ### Python
-Não podemos esquecer de ver a versão do Python
+
+Não podemos esquecer de averiguar a versão do Python que está sendo utilizada.
 
 ```bash
 python3 --version
@@ -63,36 +75,29 @@ Python 3.9.10
 
 ## Git
 
-Quase esqueci que vamos usar Git, então precisamos instalar ele tambem. 
+Para verificar a versão do Git.
 
 ```bash
-sudo apt install git
-
-# Veja qual e a versão do Git
-
 git --version
 
 # retorno
  
 git version 2.32.0
 ```
-###
-#
-Apos a instalação do Git vamos para o diretorio na qual vamos fazer o clone do projeto.
 
-Abra um terminal no diretorio na qual vamos usar.
+Entre no diretorio na qual vamos fazer o clone do nosso projeto.
 
 ```bash
 # Veja se o diretorio está correto 
 
 pwd
 
-# retorno desejado
+# E nesse diretorio que vou colocar meu projeto
 
 /home/hendrek/Documents/GitHub/KingPack
 ```
 
-Agora vamos para o Git
+Agora vamos fazer o clone do projeto.
 
 ```bash
 # Fazendo o clone do projeto
@@ -105,76 +110,48 @@ ls | grep spacepy
 
 # retorno 
 
->>> spacepy
+spacepy
 
 # Entre no repositorio
 
-cd spacepy/Space_Flight/
-
-# \o/ Oba !!! nosso projeto esta aqui.
+cd spacepy/
 ```
-### 49 % já feito.
 
-Se você chegou ate aqui, então ja devemos esta preparado para inicializar o ambiente virtual do Poetry.
+ \o/ Oba !!! nosso projeto esta aqui.
+
+### 49% já feito
+
+Se você chegou ate aqui sem erros, então já devemos estar preparados para inicializar o ambiente virtual do Poetry.
 
 ```bash
-# Então vamos la
-
 # comando para entrar no ambiente do poetry
 poetry shell
 
 # retorno
-Virtual environment already activated: /home/....
-
-# Se você estiver no modo shell rode o comando
-
-poetry update
-
-# Pode demorar um pouco para instalar todas as dependencias 
-
+Creating virtualenv spacepy-oQYf1C9p-py3.9 in /home/hendrek/.cache/pypoetry/virtualenvs
+Spawning shell within /home/hendrek/.cache/pypoetry/virtualenvs/spacepy-oQYf1C9p-py3.9
+➜  spacepy git:(main) . /home/hendrek/.cache/pypoetry/virtualenvs/spacepy-oQYf1C9p-py3.9/bin/activate
 ```
-## 
 
-Já chegamos tão longe, e ate agora nao iniciamos nossa aplicação !!!
-
-Não seja por isso.
+Apos inicializar o o ambiente virutal vamos instalar e atualizar as dependencias do projeto.
 
 ```bash
-# entre no modulo space_flight
+poetry update
+ 
+# Retorno 
 
-cd space_flight/
-
-# confirme se estamos no diretorio certo
-
-pwd
-
-# retorno
-/home/hendrek/Documents/GitHub/KingPack/spacepy/Space_Flight/space_flight/
-
-# Verifique se temos o arquivo app.py e wsgi.py usando o comando de listagem
-
-# Para iniciar nossa aplicação temos algumas maneiras de fazer isso
-
+Updating dependencies
+Resolving dependencies... (5.4s)
 ```
-##
-### Iniciando o banco de dados
 
-Não podemos esquecer de inicializar nosso banco de dados e popular ele, então pra isso temos o arquivo [cycle_db.py](https://github.com/KingPack/spacepy/blob/main/Space_Flight/cycle_db.py) 
-e [insert_data.py](https://github.com/KingPack/spacepy/blob/main/Space_Flight/space_flight/insert_data.py).
+Pode demorar um pouco para instalar todas as dependencias.
+Então e só esperar um pouco.
 
-O arquivo cycle_db.py e o maravilhoso script que vai fazer a atualização do banco de dados a cada determinado tempo. 
-[hacker]. Você pode esta entrando dentro do script e mudar para o tempo que lhe convem.
+## Criando nossos arquivos config.py
 
-### Mas e o arquivo insert_data.py ???
+Observação: Por conter dados sigilosos , esses arquivos sempre devem estar no .gitignore.
 
-Bom ele e quem e o manda chuva em tudo por aqui, pois contem o script para verificar na api externa os dados do artigo, validar e inserir no banco de dados. Então e recomendado não mexer nele por hora.
-
-
-### Criando nosso arquivo config.py
-
-obs: Lembrando que esse arquivo contem dados sigilosos então sempre deve estar no .gitignore.
-
-Ao lado dos arquivos app.py e insert_data.py vamos criar um arquivo chamado de 'config.py' e vamos adicionar os dados do nosso banco de dados.
+No diretorio [/spacepy/spacepy/](https://github.com/KingPack/spacepy/tree/main/spacepy)  e [spacepy/scripts/](https://github.com/KingPack/spacepy/tree/main/scripts) vamos criar um arquivo chamado de 'config.py' e adicionar os dados do nosso banco de dados.
 
 ```bash
 # Criando arquivo config.py
@@ -183,14 +160,11 @@ touch config.py
 # Entrando no arquivo 
 nano config.py
 ```
-Lembra dos dados do seu banco de dados? E aqui que onde vamos adicionar eles.
 
-
-Com o editor aberto vamos inserir essas dados e salvar:
-
+Lembra dos dados do seu banco de dados? É aqui onde iremos adicioná-los.
+Com o editor aberto, insira os dados  do banco e salve-os.
 
 ```python
-
 DB_HOST = 'localhost'
 DB_PORT = 'porta'
 DB_USER = 'usuario'
@@ -198,50 +172,84 @@ DB_PASS = 'root'
 DB_DATA = 'postgres'
 
 SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_DATA}'
-
-
 ```
 
-Agora temos nosso banco de dados salvo e configurado.
+Agora vamos verificar se os dados persistiram no arquivo.
 
-## Populando nosso banco
+```bash
+cat config.py
 
-Agora que temos nosso banco de dados configurado, esta na hora de inserir alguns dados nele não e ?
+# Retorno
+DB_HOST = 'localhost'
+DB_PORT = 'porta'
+DB_USER = 'usuario'
+DB_PASS = 'root'
+DB_DATA = 'postgres'
 
-Então vamos la usar o cycle_db.py
+SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_DATA}'
+```
 
-obs: Talvez demore um pouco ou horas então espere todos os artigos serem inseridos no banco de dados  para evitar problemas !!
+Se tudo deu certo então agora temos nosso banco de dados salvo e configurado.
 
+## Populando nosso banco de dados
+
+Com o nosso banco de dados configurado, está na hora de inserir alguns dados nele, certo ?
+
+Então vamos utilizar o [cycle_db.py](https://github.com/KingPack/spacepy/blob/main/scripts/cycle_db.py).
+
+Observação: Na primeira execução do codigo e normal que demore algumas horas ate que todos os artigos sejam inseridos no banco de dados, portanto, para evitar problemas futuros, aguarde até que o programa complete o seu primeiro ciclo.
 
 ```bash
 # Iniciando o cliclo do banco de dados
 python3 cycle_db.py
 
-
 # O script vai pedir um horario para agendar as tarefas.
 
-Qual horario de inicio?  exemplo: 10:00 (HH:MM) : 
+Qual horario de inicio?  exemplo: 10:00 (HH:MM) : 09:00
 
 # Coloque como no exemplo para funcionar
 
 ```
 
-Quando terminar a adição de todos os artigos poderemos ver o resultado.
+Quando a adição de todos os artigos terminar, poderemos ver o resultado no bando de dados.
 
+## Configuração do Flask
 
+Agora vamos configurar nossa aplicação Flak.
+
+Devemos exportar as variaveis no diretorio [raiz](https://github.com/KingPack/spacepy) do projeto.
+
+```bash
+# Verifique se esta no diretorio correto
+pwd
+
+# Retorno
+/home/hendrek/Documents/Projects/spacepy
+```
+
+Agora vamos exportar nossas variaveis de ambiente para o Flask.
+
+```bash
+
+# Exportando o caminho do arquivo main.py para o FLASK_APP
+export FLASK_APP=spacepy/main.py
+
+# Exportando o tipo de ambiente que estamos trabalhando
+export FLASK_ENV=development
+```
 
 ## Inicialização localhost
 
-Depois que inicializamos o banco de dados ja devemos esta pronto para iniciar nossa aplicação, então vamos para o terminal novamente !
+Depois que inicializamos o banco de dados, já estamos preparados para iniciar a nossa aplicação em desenvolvimento local.
 
 ```bash
 # Use o comando para inicializar a aplicação
 
-poetry run python3 app.py
+flask run
 
 # retorno
 
- * Serving Flask app 'app' (lazy loading)
+ * Serving Flask app 'spacepy/main.py' (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
@@ -249,15 +257,16 @@ poetry run python3 app.py
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Se tudo ocorreu certo então ja podemos acessar nossa aplicação.
+Se tudo ocorreu perfeitamente, já conseguiremos acessar a nossa aplicação.
 
-Entre no link : [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+> Entre no link : [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 Ebaaaaaa \o/ estamos no ar !!!
 
 Veja a [documentação](http://127.0.0.1:5000/documentation) do projeto.
 
-
+Continue no [README.md](https://github.com/KingPack/spacepy/tree/main/spacepy) das rotas do spacepy.
 
 ## Info
->  This is a challenge by [Coodesh](https://coodesh.com/)
+
+> This is a challenge by [Coodesh](https://coodesh.com/)
