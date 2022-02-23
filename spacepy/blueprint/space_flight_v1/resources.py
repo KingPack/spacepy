@@ -44,12 +44,11 @@ def index() -> Response:
     return Response(result, status=200, mimetype='text/html')
 
 
-@bp.route('/articles/', methods=['GET'])
+@bp.route('/articles', methods=['GET'])
 @doc_swagger.swag_from("docs/articles_GET.yaml")
 def articles_get():
 
     data_json_request = request.get_json()
-    print(data_json_request)
     
     if data_json_request is None:
         article_init = 0
@@ -131,7 +130,7 @@ def articles_get():
     return Response(result)
 
 
-@bp.route('/articles/', methods=['POST'])
+@bp.route('/articles', methods=['POST'])
 @doc_swagger.swag_from("docs/articles_POST.yaml")
 def articles_post() -> Response:
     
@@ -309,7 +308,7 @@ def articles_post() -> Response:
     return Response(result, status=status_code, mimetype='application/json')
 
 
-@bp.route('/articles/<int:id>/', methods=['GET'])
+@bp.route('/articles/<int:id>', methods=['GET'])
 @doc_swagger.swag_from("docs/article_id_GET.yaml")
 def article_get(id: int) -> Response:
     
@@ -366,7 +365,7 @@ def article_get(id: int) -> Response:
     return result
 
 
-@bp.route('/articles/<int:id>/', methods=['DELETE'])
+@bp.route('/articles/<int:id>', methods=['DELETE'])
 @doc_swagger.swag_from("docs/article_DELETE.yaml")
 def article_delete(id: int) -> Response:
 
@@ -401,7 +400,7 @@ def article_delete(id: int) -> Response:
     return jsonify(result), status_code
 
 
-@bp.route('/articles/<int:id>/', methods=['PUT'])
+@bp.route('/articles/<int:id>', methods=['PUT'])
 @doc_swagger.swag_from("docs/article_id_PUT.yaml")
 def article_put(id: int) -> Response:
     data_json = request.get_json()
@@ -433,20 +432,18 @@ def article_put(id: int) -> Response:
             raise Exception('A data de atualização do artigo não foi enviada.')
 
         else:
-                
+
             article_query = db.query(ArticleModel).filter(ArticleModel.id == id).first()
 
-            try:
 
-                if not article_query: # if article exists
-                    raise Exception(f'O artigo {id} não esta cadastrado no banco de dados')
+            if article_query: # if article exists
+                
+                if article_query.canceled == False: # if article is not canceled
                     
-                elif article_query.canceled == True: # if article is not canceled
-                    raise Exception(f'O artigo {id} ja esta excluido')
+                    launches_condition = len(data_json['launches'])
+                    events_condition = len(data_json['events'])
 
-                else:
-
-                    if not data_json['launches']: # if article doesn't have launches
+                    if launches_condition == 0: # if article doesn't have launches
                         launches = False
 
                     else: # if article has launches
@@ -461,13 +458,12 @@ def article_put(id: int) -> Response:
                                 )
 
                             db.add(article_launches_insert)
-
-                    if not data_json['events']: # if article doesn't have events
+                            
+                    if events_condition == 0: # if article doesn't have events
                         events = False
 
                     else: # if article has events
                         events = True
-
 
                         for event in data_json['events']: # for each event in article
 
@@ -477,9 +473,7 @@ def article_put(id: int) -> Response:
                                 provider = event['provider']
                                 )
 
-                    db.add(article_events_insert)
-                    db.commit()
-
+                            db.add(article_events_insert)
 
                     if launches == True:
                         launches_query = db.query(ArticlelaunchesModel).filter(ArticlelaunchesModel.id_article == id).all()
@@ -496,20 +490,6 @@ def article_put(id: int) -> Response:
                         events_json = []
 
 
-                    article_json_origin = {
-                        'id' : id,
-                        'title' : article_query.title,
-                        'url' : article_query.url,
-                        'imageUrl' : article_query.imageUrl,
-                        'newsSite' : article_query.newsSite,
-                        'summary' : article_query.summary,
-                        'publishedAt' : article_query.publishedAt,
-                        'updatedAt' : article_query.updatedAt,
-                        'featured' : article_query.featured,
-                        'launches' : launches_json,
-                        'events' : events_json
-                        }
-                    
                     article_query.title = data_json['title']
                     article_query.url = data_json['url']
                     article_query.imageUrl = data_json['imageUrl']
@@ -522,7 +502,7 @@ def article_put(id: int) -> Response:
                     article_query.events = events
                     
                     db.commit()
-                    db.close()
+
 
                     article_json_new = {
                         'id' : article_query.id,
@@ -539,14 +519,20 @@ def article_put(id: int) -> Response:
                         }
 
                     status_code = 200
-                    result = {'new': article_json_new, 'origin': article_json_origin}
+                    result = json.dumps(article_json_new)
+                
+                else:
+                    status_code = 404
+                    result = json.dumps({'mensagem': 'O artigo está cancelado.'})
 
-            except Exception as error:
+            else:
                 status_code = 404
-                result = {'mensagem': str(error)}
+                result = json.dumps({'mensagem': f'O artigo {id} não está cadastrado no banco de dados.'})
 
     except Exception as error:
         status_code = 404
-        result = {'mensagem': str(error)}
+        result = json.dumps({'mensagem': str(error), 'status_code': status_code})
+
+    db.close()
     
-    return jsonify(result), status_code 
+    return Response(result) 

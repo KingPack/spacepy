@@ -9,7 +9,7 @@ parameters:
     name: "Artigo"
     description: "Dicionario necessario para cadastro de artigo."
     required: true
-    example: {"id": null,"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
+    example: {"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
 
 responses:
   "200":

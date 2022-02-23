@@ -1,4 +1,5 @@
-from data_base import Base, engine
+from data_base import Base
+from data_base import engine
 
 from datetime import datetime
 
@@ -15,9 +16,10 @@ from sqlalchemy.sql.sqltypes import String
 from sqlalchemy.sql.sqltypes import Boolean
 from sqlalchemy.sql.sqltypes import DateTime
 
-# models para o banco de dados
+# Criando as tabelas no banco de dados
 Base.metadata.create_all(bind=engine)
 
+# models e schemas para o banco de dados
 class ArticleModel(Base):
 
     __tablename__ = 'article'
@@ -49,8 +51,6 @@ class ArticleSchema(Schema):
     launches = fields.Boolean()
     events = fields.Boolean()
 
-
-
 #----------------------------------------------------------------------------#
 # Model and schema Article Lauchens.
 
@@ -64,12 +64,10 @@ class ArticlelaunchesModel(Base):
     id = Column(String)
     provider = Column(String)
 
-
 class ArticlelaunchesSchema(Schema):
 
     id = fields.String()
     provider = fields.String()
-
 
 #----------------------------------------------------------------------------#
 # Model and schema Article Events.
@@ -90,7 +88,6 @@ class ArticleEventsSchema(Schema):
     provider = fields.String()
 
 #----------------------------------------------------------------------------#
-
 
 class DataApiModel(Base):
 

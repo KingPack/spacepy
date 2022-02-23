@@ -13,7 +13,7 @@ parameters:
   - in: "body"
     name: "Dados necessarios."
     required: true
-    example: {"id": null,"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
+    example: {"title": "","url": "","imageUrl": "","newsSite": "","summary": "","publishedAt": "","updatedAt": "","featured": false,"launches": [],"events": []}
 responses:
   "200":
     description: "Artigo modificado com sucesso."
