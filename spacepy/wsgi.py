@@ -1,4 +1,4 @@
-from spacepy.main import app
+from spacepy.main import create_app
 
 if __name__ == "__main__":
-    app.run()
+    create_app.run()
