@@ -60,7 +60,7 @@ poetry --version
 
 # O retorno deve ser
 
-Poetry version 1.1.12
+Poetry version 1.1.13
 ```
 
 ### Python
