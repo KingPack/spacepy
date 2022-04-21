@@ -1,0 +1,12 @@
+version: '1'
+
+services:
+  web:
+    build: .
+    context: ./spacepy
+    dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./spacepy:/app
+    working_dir: /app

@@ -60,6 +60,6 @@ ENV FLASK_APP spacepy/main.py
 
 COPY . .
 
-EXPOSE 8001
+EXPOSE 5001
 
-CMD ["gunicorn", "-b", "0.0.0.0:8001", "spacepy.wsgi:create_app()"]
+CMD ["gunicorn", "-b", "0.0.0.0:5001", "spacepy.wsgi:create_app()"]
